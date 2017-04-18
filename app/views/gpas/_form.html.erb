@@ -1,0 +1,24 @@
+<%= form_for(gpa) do |f| %>
+  <% if gpa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gpa.errors.count, "error") %> prohibited this gpa from being saved:</h2>
+
+      <ul>
+      <% gpa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name, "あなたの名前" %>
+    <%= f.text_field :name %>
+    <%= f.label :file, "成績PDF" %>
+    <%= f.file_field :file %>
+    <%= f.label :password, "編集・削除用パスワード" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

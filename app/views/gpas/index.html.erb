@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>京都大学GPAランキング</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead> 
+
+  <tbody>     
+    <% @gpas.each do |gpa| %>
+      <tr>
+        <td><%= gpa.name %>さん</td>
+        <td>GPA: <%= gpa.gpa.round(2) %></td>
+        <td><%= link_to '詳細', gpa %></td>
+        <td><%= link_to '編集', edit_gpa_path(gpa) %></td>
+        <td><%= link_to '削除', gpa, method: :delete, data: { confirm: '削除してよろしいですか？ ' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+<br>
+
+<%= link_to 'GPAを登録する', new_gpa_path %>

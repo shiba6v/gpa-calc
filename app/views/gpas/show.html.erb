@@ -1,0 +1,30 @@
+<h1><%= @gpa.name %> さんの成績</h1>
+
+<p id="notice"><%= notice %></p>
+
+<h2>成績表</h2>
+<table>
+  <tr>
+  <th>GPA</th>
+  <th>取得単位数</th>
+  <th>A+</th>
+  <th>A</th>
+  <th>B</th>
+  <th>C</th>
+  <th>D</th>
+  <th>F</th>
+  </tr>
+  <tr>
+  <td><%= @gpa.gpa.round(2) %></td>
+  <td><%= @gpa.credit_sum %></td>
+  <td><%= @gpa.ap_amount %></td>
+  <td><%= @gpa.a_amount %></td>
+  <td><%= @gpa.b_amount %></td>
+  <td><%= @gpa.c_amount %></td>
+  <td><%= @gpa.d_amount %></td>
+  <td><%= @gpa.f_amount %></td>
+  </tr>
+</table>
+
+<%= link_to '編集する', edit_gpa_path(@gpa) %> |
+<%= link_to '一覧へ戻る', gpas_path %>
